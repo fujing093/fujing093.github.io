@@ -155,6 +155,171 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-bitop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/bitop/">位运算</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/05/bitop/" class="archive-article-date">
+  	<time datetime="2017-06-05T14:16:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>左移 m &lt;&lt; n 把m左移n位，最左边n位被丢弃，右边补0<br>右移 m &gt;&gt; n 把m右移n位，最右边n位被丢弃</p>
+<h3 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h3><p>$$n = (n-1) &amp; n$$<br>执行多少次，就有多少个1.</p>
+<h3 id="一条语句判断一个整数是不是2的整数次方"><a href="#一条语句判断一个整数是不是2的整数次方" class="headerlink" title="一条语句判断一个整数是不是2的整数次方"></a>一条语句判断一个整数是不是2的整数次方</h3><p>$$n &amp; (n-1) == 0$$</p>
+<h3 id="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"><a href="#比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n" class="headerlink" title="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"></a>比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n</h3><p>$m\^n$(异或)，然后统计1的个数。</p>
+<p>把一个整数减去1之后再和原来的整数做位与运算，得到的结果相当于把整数的二进制表示中的最右边一个1变成0</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/05/bitop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-recursion-looping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/recursion-looping/">递归和循环</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/05/recursion-looping/" class="archive-article-date">
+  	<time datetime="2017-06-05T14:00:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>代码简洁，但是效率不如循环：</p>
+<ol>
+<li>函数调用的时间、空间消耗，保存上下文</li>
+<li>可能很多计算是重复的</li>
+<li>调用栈溢出</li>
+</ol>
+<h1 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h1><p>$$f(n) = f(n-1) + f(n-2)$$<br>时间复杂度：<br>    递归：n的指数递增<br>    循环：O(n)<br>    公式法：O(logn) 矩阵</p>
+<p>例子：</p>
+<ol>
+<li><p>跳台阶<br>第n级台阶看成n-1级+n-2级，$f(n) = f(n-1) + f(n-2)$<br>一次跳n级：$2^(n-1)$，$f(n) = f(0) + f(1) + … + f(n-1) = 2f(n-1) = 4f(n-2) = 2^(n-1)$</p>
+</li>
+<li><p>矩形覆盖</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/05/recursion-looping/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-searching-sorting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
