@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[查找和排序]]></title>
+      <url>http://yoursite.com/2017/06/05/searching-sorting/</url>
+      <content type="html"><![CDATA[<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><ol>
+<li>顺序查找</li>
+<li>二分查找（代码）</li>
+<li>哈希表查找</li>
+<li>二叉排序树查找<br>二分查找：在排序的数组（或部分排序的数组）中查找一个数字或统计某个数字出现的次数。<br>哈希表查找：优点：O(1)时间内查找，效率最高；缺点：需要额外空间实现哈希表。</li>
+</ol>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><ol>
+<li>插入排序</li>
+<li>冒泡排序</li>
+<li>归并排序</li>
+<li>快速排序（代码）递归、非递归 总体的平均效率最好，但不是最优。<br>优劣、复杂度、场合、额外空间消耗、平均时间复杂度、最差时间复杂度</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[数据结构&算法整理目录]]></title>
       <url>http://yoursite.com/2017/04/25/Outline-data-structure-and-algorithms/</url>
       <content type="html"><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><ol>
