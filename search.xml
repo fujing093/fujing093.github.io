@@ -6,7 +6,7 @@
     <entry>
       <title><![CDATA[组合数学]]></title>
       <url>http://yoursite.com/2017/06/09/math/</url>
-      <content type="html"><![CDATA[<p>$$f(1) = f(2)$$<br>$$(A <em> B) \% C = ((A \% C) </em> (B \% C)) \% C$$<br>$$A ^ n \% C = ((A - A \% C) + A \% C) ^ n \% C = (A \% C) ^ n \% C$$<br>例：$87 ^ 100 \% 7 = 3 ^ 100 \% 7 = (3 ^ 6) ^ 16 <em> 3 ^ 4 \% 7 = 1 </em> 81 \% 7 = 4$</p>
+      <content type="html"><![CDATA[<p>$$f(1) = f(2)$$<br>$$(A * B) \% C = ((A \% C) * (B \% C)) \% C$$<br>$$A ^ n \% C = ((A - A \% C) + A \% C) ^ n \% C = (A \% C) ^ n \% C$$<br>例：$87 ^ 100 \% 7 = 3 ^ 100 \% 7 = (3 ^ 6) ^ 16 * 3 ^ 4 \% 7 = 1 * 81 \% 7 = 4$</p>
 ]]></content>
     </entry>
     
