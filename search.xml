@@ -4,6 +4,13 @@
   
     
     <entry>
+      <title><![CDATA[组合数学]]></title>
+      <url>http://yoursite.com/2017/06/09/math/</url>
+      <content type="html"><![CDATA[<p>$$ (A <em> B) % C = ((A % C) </em> (B % C)) % C $$<br>$$A ^ n % C = ((A - A % C) + A % C) ^ n % C = (A % C) ^ n % C$$<br>例：$87 ^ 100 % 7 = 3 ^ 100 % 7 = (3 ^ 6) ^ 16 <em> 3 ^ 4 % 7 = 1 </em> 81 % 7 = 4$</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[位运算]]></title>
       <url>http://yoursite.com/2017/06/05/bitop/</url>
       <content type="html"><![CDATA[<p>左移 m &lt;&lt; n 把m左移n位，最左边n位被丢弃，右边补0<br>右移 m &gt;&gt; n 把m右移n位，最右边n位被丢弃</p>

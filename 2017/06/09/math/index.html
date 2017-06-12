@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>F#的小记录</title>
+  <title>组合数学 | F#的小记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="F#的小记录">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="$$ (A  B) % C = ((A % C)  (B % C)) % C $$$$A ^ n % C = ((A - A % C) + A % C) ^ n % C = (A % C) ^ n % C$$例：$87 ^ 100 % 7 = 3 ^ 100 % 7 = (3 ^ 6) ^ 16  3 ^ 4 % 7 = 1  81 % 7 = 4$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组合数学">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/math/index.html">
 <meta property="og:site_name" content="F#的小记录">
+<meta property="og:description" content="$$ (A  B) % C = ((A % C)  (B % C)) % C $$$$A ^ n % C = ((A - A % C) + A % C) ^ n % C = (A % C) ^ n % C$$例：$87 ^ 100 % 7 = 3 ^ 100 % 7 = (3 ^ 6) ^ 16  3 ^ 4 % 7 = 1  81 % 7 = 4$">
+<meta property="og:updated_time" content="2017-06-09T14:00:54.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="F#的小记录">
+<meta name="twitter:title" content="组合数学">
+<meta name="twitter:description" content="$$ (A  B) % C = ((A % C)  (B % C)) % C $$$$A ^ n % C = ((A - A % C) + A % C) ^ n % C = (A % C) ^ n % C$$例：$87 ^ 100 % 7 = 3 ^ 100 % 7 = (3 ^ 6) ^ 16  3 ^ 4 % 7 = 1  81 % 7 = 4$">
   
     <link rel="alternative" href="/atom.xml" title="F#的小记录" type="application/atom+xml">
   
@@ -153,16 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-math" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-math" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/09/math/">组合数学</a>
+    <h1 class="article-title" itemprop="name">
+      组合数学
     </h1>
   
 
@@ -180,83 +182,26 @@
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/09/math/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-bitop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/bitop/">位运算</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/05/bitop/" class="archive-article-date">
-  	<time datetime="2017-06-05T14:16:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>左移 m &lt;&lt; n 把m左移n位，最左边n位被丢弃，右边补0<br>右移 m &gt;&gt; n 把m右移n位，最右边n位被丢弃</p>
-<h3 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h3><p>$$n = (n-1) &amp; n$$<br>执行多少次，就有多少个1.</p>
-<h3 id="一条语句判断一个整数是不是2的整数次方"><a href="#一条语句判断一个整数是不是2的整数次方" class="headerlink" title="一条语句判断一个整数是不是2的整数次方"></a>一条语句判断一个整数是不是2的整数次方</h3><p>$$n &amp; (n-1) == 0$$</p>
-<h3 id="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"><a href="#比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n" class="headerlink" title="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"></a>比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n</h3><p>$m\^n$(异或)，然后统计1的个数。</p>
-<p>把一个整数减去1之后再和原来的整数做位与运算，得到的结果相当于把整数的二进制表示中的最右边一个1变成0</p>
-
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -291,438 +236,85 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/bitop/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/09/math/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-recursion-looping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/recursion-looping/">递归和循环</a>
-    </h1>
   
-
-        
-        <a href="/2017/06/05/recursion-looping/" class="archive-article-date">
-  	<time datetime="2017-06-05T14:00:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>代码简洁，但是效率不如循环：</p>
-<ol>
-<li>函数调用的时间、空间消耗，保存上下文</li>
-<li>可能很多计算是重复的</li>
-<li>调用栈溢出</li>
-</ol>
-<h1 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h1><p>$$f(n) = f(n-1) + f(n-2)$$<br>时间复杂度：<br>    递归：n的指数递增<br>    循环：O(n)<br>    公式法：O(logn) 矩阵</p>
-<p>例子：</p>
-<ol>
-<li><p>跳台阶<br>第n级台阶看成n-1级+n-2级，$f(n) = f(n-1) + f(n-2)$<br>一次跳n级：$2^(n-1)$，$f(n) = f(0) + f(1) + … + f(n-1) = 2f(n-1) = 4f(n-2) = 2^(n-1)$</p>
-</li>
-<li><p>矩形覆盖</p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/recursion-looping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+    <a href="/2017/06/05/bitop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">位运算</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
 
 
   
-    <article id="post-searching-sorting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/searching-sorting/">查找和排序</a>
-    </h1>
   
 
-        
-        <a href="/2017/06/05/searching-sorting/" class="archive-article-date">
-  	<time datetime="2017-06-05T13:49:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><ol>
-<li>顺序查找</li>
-<li>二分查找（代码）</li>
-<li>哈希表查找</li>
-<li>二叉排序树查找<br>二分查找：在排序的数组（或部分排序的数组）中查找一个数字或统计某个数字出现的次数。<br>哈希表查找：优点：O(1)时间内查找，效率最高；缺点：需要额外空间实现哈希表。</li>
-</ol>
-<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><ol>
-<li>插入排序</li>
-<li>冒泡排序</li>
-<li>归并排序</li>
-<li>快速排序（代码）递归、非递归 总体的平均效率最好，但不是最优。<br>优劣、复杂度、场合、额外空间消耗、平均时间复杂度、最差时间复杂度</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/05/searching-sorting/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Outline-data-structure-and-algorithms" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/Outline-data-structure-and-algorithms/">数据结构&amp;算法整理目录</a>
-    </h1>
   
 
-        
-        <a href="/2017/04/25/Outline-data-structure-and-algorithms/" class="archive-article-date">
-  	<time datetime="2017-04-25T13:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><ol>
-<li>数组</li>
-<li>链表<ul>
-<li>反转链表，以k个元素为一组反转链表</li>
-</ul>
-</li>
-<li>字符串<ul>
-<li>KMP</li>
-</ul>
-</li>
-<li>树<ul>
-<li>创建树，插入结点</li>
-<li>平衡二叉树</li>
-</ul>
-</li>
-<li>图</li>
-</ol>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ol>
-<li>查找</li>
-<li>排序<ul>
-<li>快排：数组，单链表</li>
-<li>复杂度</li>
-</ul>
-</li>
-<li>动态规划<ul>
-<li>最长子序列</li>
-<li>01背包</li>
-</ul>
-</li>
-<li>贪心</li>
-<li>数学<ul>
-<li>素数</li>
-<li>最大公约数</li>
-<li>斐波那契数列</li>
-<li>全排列</li>
-</ul>
-</li>
-<li>位操作<ul>
-<li>二进制1的个数</li>
-</ul>
-</li>
-<li>递归</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构和算法/" class="article-tag-list-link color3">数据结构和算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/25/Outline-data-structure-and-algorithms/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-postName" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/postName/">postName</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/25/postName/" class="archive-article-date">
-  	<time datetime="2017-04-25T12:15:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>常用Markdown<br>
-        
-          <a class="article-more-a" href="/2017/04/25/postName/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/默认分类/" class="article-tag-list-link color5">默认分类</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/25/postName/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/08/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-08T08:35:55.276Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
 
 
@@ -745,8 +337,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
