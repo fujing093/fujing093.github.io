@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,6 +64,92 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-SMTP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/26/SMTP/" class="article-date">
+  <time datetime="2017-07-26T14:40:24.000Z" itemprop="datePublished">2017-07-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/实习/">实习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/26/SMTP/">SMTP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>SMTP（Simple Mail Transfer Protocol），简单邮件传输协议，是电子邮件传输的互联网标准，是一种TCP协议支持的提供可靠且有效电子邮件传输的应用层协议。</p>
+<ul>
+<li><p>SMTP的一个重要特点是能够在传送中接力传送邮件，即邮件可以通过不同网络上的主机接力式传送。</p>
+</li>
+<li><p>SMTP存在两个端：在发信人的邮件服务器上执行的客户端，和在收信人的邮件服务器上执行的服务器端。每个邮件服务器同时运行客户端和服务端。当一个邮件服务器向其他邮件服务器发送邮件时，它是作为SMTP客户端在运行。通常它工作在两种情况下：一是邮件从客户机传输到服务器；二是从某一个服务器传输到另一个服务器。</p>
+</li>
+<li><p>SMTP是一个请求/响应协议，它监听25号端口，用于接收用户的Mail请求，并与远端Mail服务器建立SMTP连接。</p>
+</li>
+<li><p>SMTP是一个“推”的协议，它不允许根据需要从远程服务器上“拉”来消息。要做到这点，邮件客户端必须使用POP3或IMAP。另一个SMTP服务器可以使用ETRN在SMTP上触发一个发送。</p>
+</li>
+<li><p>发送邮件前先发送RCPT命令而不是直接发送邮件，目的是弄清服务器是否做好接收邮件的准备，然后才发送邮件，避免浪费网络资源，不致于发送了很长的邮件后才发现收件人帐户有问题，例如查无此人、信箱存储空间不够。</p>
+</li>
+<li><p>浏览器发送邮件，是将用户代理的功能直接放到邮件服务器上去做，邮件服务器发送邮件仍然采用SMTP协议。</p>
+</li>
+</ul>
+<h2 id="SMTP协议工作机制"><a href="#SMTP协议工作机制" class="headerlink" title="SMTP协议工作机制"></a>SMTP协议工作机制</h2><p>SMTP通常有两种工作模式：发送SMTP和接收SMTP。</p>
+<p>具体工作方式为：发送SMTP在接收到用户的邮件请求后，判断此邮件是否为本地邮件，若是直接投送到用户的邮箱，否则向DNS查询远端邮件服务器的MX记录，并建立与远端接收SMTP之间的一个双向传送通道，此后SMTP命令由发送SMTP发出，由接收SMTP接收，而应答则反方向传送。一旦传送通道建立，SMTP发送者发送MAIL命令指明邮件发送者。如果SMTP接收者可以接收邮件则返回OK应答。SMTP发送者再发出RCPT命令确认邮件是否接收到。如果SMTP接收者接收，则返回OK应答；如果不能接收到，则发出拒绝接收应答（但不中止整个邮件操作），双方将如此反复多次。当接收者收到全部邮件后会接收到特别的序列，如果接收者成功处理了邮件，则返回OK应答。</p>
+<h2 id="SmtpClient-DeliveryMethod-C"><a href="#SmtpClient-DeliveryMethod-C" class="headerlink" title="SmtpClient.DeliveryMethod (C#)"></a>SmtpClient.DeliveryMethod (C#)</h2><p>C#中SmtpClient有三种传输方式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">传输方式</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Network</td>
+<td style="text-align:left">Email 通过网络传输到一个SMTP服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">PickupDirectoryFromIis</td>
+<td style="text-align:left">Email 复制到拾取目录，然后由本地Internet信息服务（IIS）传输</td>
+</tr>
+<tr>
+<td style="text-align:left">SpecifiedPickupDirectory</td>
+<td style="text-align:left">Email 复制到 SmtpClient.PickupDirectoryLocation 属性指定的目录，然后由外部应用传输</td>
+</tr>
+</tbody>
+</table>
+<p>Network 是正常发送的，一般使用这种方式。</p>
+<p>测试的时候如果不希望邮件发送出去，只希望测试对于一些特殊情况有没有检测到，可以使用 SpecifiedPickupDirectory，这种方式的行为和 Network 是一致的，只是邮件没有发出去，而是存在一个文件夹中。</p>
+<p>可以检测的特殊情况包括（就是 Send(MailMessage message) 方法的描述）：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//   T:System.ArgumentNullException:</span></div><div class="line"><span class="comment">//     message 为 null。</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//   T:System.InvalidOperationException:</span></div><div class="line"><span class="comment">//     有一个 Overload:System.Net.Mail.SmtpClient.SendAsync</span></div><div class="line"><span class="comment">//     调用正在进行。</span></div><div class="line"><span class="comment">//	   或 - From 为 null。</span></div><div class="line"><span class="comment">//     或 - To、CC、Bcc 中没有指定的收件人。</span></div><div class="line"><span class="comment">//     或 - DeliveryMethod 为 Network，但 Host 为 null 或空字符串。</span></div><div class="line"><span class="comment">//     或 - DeliveryMethod 为 Network，但 Port 为零、负数或大于 65,535。</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//   T:System.ObjectDisposedException:</span></div><div class="line"><span class="comment">//     此对象已被释放。</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//   T:System.Net.Mail.SmtpException:</span></div><div class="line"><span class="comment">//     连接到 SMTP 服务器失败。</span></div><div class="line"><span class="comment">//     或 - 身份验证失败。</span></div><div class="line"><span class="comment">//     或 - 操作超时。</span></div><div class="line"><span class="comment">//     或 - EnableSsl 为 true，但 DeliveryMethod 属性设置为 SpecifiedPickupDirectory 或 PickupDirectoryFromIis。</span></div><div class="line"><span class="comment">//     或 - EnableSsl 为 true,，但 SMTP 邮件服务器不在对 EHLO 命令的响应中公布 STARTTLS。</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//   T:System.Net.Mail.SmtpFailedRecipientsException:</span></div><div class="line"><span class="comment">//     message 未能传递给 To、CC 或 Bcc 中的一个或多个收件人。</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Send</span>(<span class="params">MailMessage message</span>)</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://baike.baidu.com/item/SMTP/175887?fr=aladdin" target="_blank" rel="external">百度百科：SMTP</a><br><a href="http://blog.csdn.net/kerry0071/article/details/28604267" target="_blank" rel="external">SMTP协议详解及工作过程</a><br><a href="https://msdn.microsoft.com/en-us/library/system.net.mail.smtpdeliverymethod(v=vs.110" target="_blank" rel="external">SmtpDeliveryMethod Enumeration</a>.aspx)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/26/SMTP/" data-id="cj5l7fzpf0005t4j1f2fdf19x" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SMTP/">SMTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-math" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -96,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/09/math/" data-id="cj3tgh96s00064kj1qd0zbhlq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/09/math/" data-id="cj5l7fzpw000gt4j1u2qdkxcx" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -143,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/bitop/" data-id="cj3tgh96g00024kj1cwsb9njj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/bitop/" data-id="cj5l7fzp90002t4j1nq5fbh52" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -199,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/recursion-looping/" data-id="cj3tgh972000a4kj1rnm2ekvj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/recursion-looping/" data-id="cj5l7fzpm0007t4j1qv0q2rta" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -253,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/searching-sorting/" data-id="cj3tgh975000c4kj1wjxh2uu7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/06/05/searching-sorting/" data-id="cj5l7fzpt000ct4j1v03mlea0" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -338,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/Outline-data-structure-and-algorithms/" data-id="cj3tgh96800004kj17viwstyg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/25/Outline-data-structure-and-algorithms/" data-id="cj5l7fzp40000t4j1ugrdnyj2" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
@@ -385,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/postName/" data-id="cj3tgh96y00074kj1yvmuy79y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/25/postName/" data-id="cj5l7fzpp000at4j1jkn39isu" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -432,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/08/hello-world/" data-id="cj3tgh96n00054kj1ernsbjpc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/08/hello-world/" data-id="cj5l7fzpi0006t4j140jclr78" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -449,9 +535,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构和算法/">数据结构和算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/默认分类/">默认分类</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/实习/">实习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构和算法/">数据结构和算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/默认分类/">默认分类</a></li></ul>
     </div>
   </div>
 
@@ -459,9 +545,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li></ul>
     </div>
   </div>
 
@@ -471,16 +557,16 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/algorithms/" style="font-size: 20px;">algorithms</a> <a href="/tags/data-structure/" style="font-size: 20px;">data structure</a>
+      <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/SMTP/" style="font-size: 10px;">SMTP</a> <a href="/tags/algorithms/" style="font-size: 20px;">algorithms</a> <a href="/tags/data-structure/" style="font-size: 20px;">data structure</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li></ul>
     </div>
   </div>
 
@@ -488,9 +574,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/07/26/SMTP/">SMTP</a>
+          </li>
         
           <li>
             <a href="/2017/06/09/math/">组合数学</a>
@@ -506,10 +596,6 @@
         
           <li>
             <a href="/2017/06/05/searching-sorting/">查找和排序</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/25/Outline-data-structure-and-algorithms/">数据结构&amp;算法整理目录</a>
           </li>
         
       </ul>

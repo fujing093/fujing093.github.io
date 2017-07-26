@@ -3,27 +3,14 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>位运算 | F#的小记录</title>
+  <title>Archieven: 2017/7 | F#的小记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="左移 m &amp;lt;&amp;lt; n 把m左移n位，最左边n位被丢弃，右边补0右移 m &amp;gt;&amp;gt; n 把m右移n位，最右边n位被丢弃
-二进制中1的个数$$n = (n-1) &amp;amp; n$$执行多少次，就有多少个1.
-一条语句判断一个整数是不是2的整数次方$$n &amp;amp; (n-1) == 0$$
-比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n$m\^n$(异或)，然后统">
-<meta property="og:type" content="article">
-<meta property="og:title" content="位运算">
-<meta property="og:url" content="http://yoursite.com/2017/06/05/bitop/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="F#的小记录">
+<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
 <meta property="og:site_name" content="F#的小记录">
-<meta property="og:description" content="左移 m &amp;lt;&amp;lt; n 把m左移n位，最左边n位被丢弃，右边补0右移 m &amp;gt;&amp;gt; n 把m右移n位，最右边n位被丢弃
-二进制中1的个数$$n = (n-1) &amp;amp; n$$执行多少次，就有多少个1.
-一条语句判断一个整数是不是2的整数次方$$n &amp;amp; (n-1) == 0$$
-比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n$m\^n$(异或)，然后统">
-<meta property="og:updated_time" content="2017-06-05T14:23:51.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="位运算">
-<meta name="twitter:description" content="左移 m &amp;lt;&amp;lt; n 把m左移n位，最左边n位被丢弃，右边补0右移 m &amp;gt;&amp;gt; n 把m右移n位，最右边n位被丢弃
-二进制中1的个数$$n = (n-1) &amp;amp; n$$执行多少次，就有多少个1.
-一条语句判断一个整数是不是2的整数次方$$n &amp;amp; (n-1) == 0$$
-比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n$m\^n$(异或)，然后统">
+<meta name="twitter:title" content="F#的小记录">
   
     <link rel="alternate" href="/atom.xml" title="F#的小记录" type="application/atom+xml">
   
@@ -76,71 +63,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-bitop" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/05/bitop/" class="article-date">
-  <time datetime="2017-06-05T14:16:58.000Z" itemprop="datePublished">2017-06-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/数据结构和算法/">数据结构和算法</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      位运算
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/07/26/SMTP/" class="archive-article-date">
+  <time datetime="2017-07-26T14:40:24.000Z" itemprop="datePublished">Jul 26</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/07/26/SMTP/">SMTP</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>左移 m &lt;&lt; n 把m左移n位，最左边n位被丢弃，右边补0<br>右移 m &gt;&gt; n 把m右移n位，最右边n位被丢弃</p>
-<h3 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h3><p>$$n = (n-1) &amp; n$$<br>执行多少次，就有多少个1.</p>
-<h3 id="一条语句判断一个整数是不是2的整数次方"><a href="#一条语句判断一个整数是不是2的整数次方" class="headerlink" title="一条语句判断一个整数是不是2的整数次方"></a>一条语句判断一个整数是不是2的整数次方</h3><p>$$n &amp; (n-1) == 0$$</p>
-<h3 id="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"><a href="#比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n" class="headerlink" title="比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n"></a>比较两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n</h3><p>$m\^n$(异或)，然后统计1的个数。</p>
-<p>把一个整数减去1之后再和原来的整数做位与运算，得到的结果相当于把整数的二进制表示中的最右边一个1变成0</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/05/bitop/" data-id="cj5l7fzp90002t4j1nq5fbh52" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithms/">algorithms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-structure/">data structure</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/06/09/math/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nieuwer</strong>
-      <div class="article-nav-title">
-        
-          组合数学
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/06/05/recursion-looping/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
-      <div class="article-nav-title">递归和循环</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 </section>
         
@@ -247,23 +202,6 @@
 
 <script src="/js/script.js"></script>
 
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
